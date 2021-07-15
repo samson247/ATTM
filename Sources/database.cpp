@@ -13,17 +13,6 @@ Database::Database()
 }
 
 bool Database::connect() {
-    //*this->database
-    //QSqlDatabase db = QSqlDatabase::addDatabase("QODB9C");
-    //this->database = QSqlDatabase::addDatabase("QO9DBC");
-    //this->database.setHostName("localhost");
-    //this->database.setDatabaseName("ATOM");
-    /*this->database.setUserName("root");
-    this->database.setPassword("Kingcobr@24");
-    //this->database.setPort(3306);*/
-    //bool opened = this->database.open();
-    //qDebug() << this->database.lastError();
-    //return opened;
     const QString DRIVER("QSQLITE");
     if(QSqlDatabase::isDriverAvailable(DRIVER)) {
         QSqlDatabase db = QSqlDatabase::addDatabase(DRIVER);
@@ -43,13 +32,6 @@ bool Database::connect() {
     setupTables();
     insertItem("traknet", "password");
     getAll();
-    /*QSqlQuery query("CREATE TABLE people (id INTEGER PRIMARY KEY, name TEXT)");
-    if(!query.isActive()) {
-        qWarning() << "ERROR: " << query.lastError().text();
-    }
-    else {
-        qDebug() << query.lastQuery();
-    }*/
     return true;
 }
 
@@ -86,8 +68,6 @@ void Database::insertItem(QString account, QString password) {
                    "VALUES (:accountName, :passwordHash)");
     query.bindValue(":accountName", account);
     query.bindValue(":passwordHash", password);
-    //query.exec();
-    //insertQuery.prepare("CREATE TABLE IF NOT EXISTS accounts (id INTEGER UNIQUE PRIMARY KEY AUTOINCREMENT, accountName VARCHAR(45), passwordHash VARCHAR(64))");
     if(!query.exec()) {
         qDebug() << query.lastError();
     }

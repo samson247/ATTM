@@ -13,14 +13,9 @@ NoteWidget::NoteWidget(QWidget *parent) :
     noteTitle->setText("New Note");
     noteTitle->setAlignment(Qt::AlignHCenter);
 
-    //noteTitle->show();
     ui->scrollArea->setWidgetResizable( true );
 
-    //layout = new QVBoxLayout();
-
     QFrame *frame = new QFrame(ui->scrollArea);
-    //frame->widgetRe
-    //ui->scrollArea->setWidget(widget);
     layout = new QVBoxLayout();
     ui->scrollArea->setWidget(frame);
     noteBody = new QTextEdit();
@@ -34,14 +29,6 @@ NoteWidget::NoteWidget(QWidget *parent) :
 
     Note *note = new Note(noteTitle->text(), noteBody->toPlainText());
     notes.append(note);
-    //widget->addWidget(noteTitle);
-
-    //layout->replaceWidget(noteTitle, ui->label);
-    //ui->label->hide();
-    //layout->addWidget(passwordWidget);
-    //noteTitle = new NoteLabel(this);
-    //replaceWidget(noteTitle, ui->label);
-    //ui->label->hide();
 
     // Rewrite this with new push button
     connect(addNoteButton, SIGNAL(clicked()), this, SLOT(addNote()));

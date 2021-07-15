@@ -17,7 +17,6 @@ Login::~Login()
 }
 
 void Login::login() {
-    //QWidget *wdg = new QWidget;
     HomePage *homepage = new HomePage;
     homepage->show();
     this->close();

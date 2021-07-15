@@ -8,9 +8,6 @@ HomePage::HomePage(QWidget *parent) :
     ui(new Ui::HomePage)
 {
     ui->setupUi(this);
-    //ui->listWidget->addItem("traknet");
-    //ui->listWidget_2->addItem("password");
-    //connect(ui->toolButton, SIGNAL(clicked()), this, SLOT(showDialog()));
     passwordWidget = new PasswordWidget(this);
     addressBookWidget = new AddressBook(this);
     addressBookWidget->hide();
@@ -47,9 +44,6 @@ void HomePage::showPassword() {
         layout->replaceWidget(noteWidget, passwordWidget);
         noteWidget->hide();
     }
-    /*passwordWidget->show();
-    layout->replaceWidget(addressBookWidget, passwordWidget);
-    addressBookWidget->hide();*/
 }
 
 void HomePage::showAddressBook() {
@@ -63,9 +57,6 @@ void HomePage::showAddressBook() {
         layout->replaceWidget(noteWidget, addressBookWidget);
         noteWidget->hide();
     }
-    /*addressBookWidget->show();
-    layout->replaceWidget(passwordWidget, addressBookWidget);
-    passwordWidget->hide();*/
 }
 
 void HomePage::showNotes() {
@@ -79,12 +70,7 @@ void HomePage::showNotes() {
         layout->replaceWidget(addressBookWidget, noteWidget);
         addressBookWidget->hide();
     }
-    /*noteWidget->show();
-    layout->replaceWidget(addressBookWidget, noteWidget);
-    addressBookWidget->hide();*/
 }
 
 void HomePage::addItemSlot(QString account, QString password) {
-   // ui->listWidget->addItem(account);
-   // ui->listWidget_2->addItem(password);
 }

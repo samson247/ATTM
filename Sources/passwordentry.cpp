@@ -8,7 +8,6 @@ PasswordEntry::PasswordEntry(QWidget *parent) :
 {
     ui->setupUi(this);
     connect(ui->buttonBox,SIGNAL(accepted()),this,SLOT(addItem()));
-    //connect(ui->buttonBox,SIGNAL(accepted()),this,SLOT(editItem()));
 }
 
 PasswordEntry::PasswordEntry(QWidget *parent, QString account, QString password, int row) :
@@ -16,7 +15,6 @@ PasswordEntry::PasswordEntry(QWidget *parent, QString account, QString password,
     ui(new Ui::PasswordEntry)
 {
     ui->setupUi(this);
-    //connect(ui->buttonBox,SIGNAL(accepted()),this,SLOT(addItem()));
     ui->lineEdit->setText(account);
     ui->lineEdit_2->setText(password);
     this->row = row;
@@ -27,8 +25,6 @@ PasswordEntry::PasswordEntry(QWidget *parent, QString account, QString password,
 
 //TODO Determine text based on item
 void PasswordEntry::editItem() {
-    //ui->lineEdit->setText("Edited Account");
-    //ui->lineEdit_2->setText("Edited Password");
     emit editItemSignal(ui->lineEdit->text(), ui->lineEdit_2->text(), this->row);
 }
 
